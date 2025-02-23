@@ -2,8 +2,8 @@ import { Link, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const ActorDetails = () => {
-  const { actorId, movieId } = useParams();
+const ActorDetails = ({ movieId }) => {
+  const { actorId } = useParams();
   const [actor, setActor] = useState();
 
   useEffect(() => {
