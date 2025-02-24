@@ -31,7 +31,7 @@ const ActorDetails = ({ movie }) => {
       <div className="actor-details">
         <img src={actor.image} alt={actor.name} />
         <br />
-        character: {actor.character}
+        Character: {actor.character}
       </div>
       <Link to={`/movies/${movie.id}`}>Back to the movie "{movie.title}"</Link>
     </div>

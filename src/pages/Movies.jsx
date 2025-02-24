@@ -15,7 +15,7 @@ const Movies = ({ movies, setSelectedMovieId }) => {
     <div className="container">
       <h1>Movies</h1>
       <div className="genre">
-        <button onClick={() => navigate("/")}>Go to Home</button>
+        <button onClick={() => navigate(-1)}>Go to Home</button>
         <button onClick={() => setSelectedGenre("all")}>All</button>
         <button onClick={() => setSelectedGenre("action")}>Action</button>
         <button onClick={() => setSelectedGenre("crime")}>Crime</button>
