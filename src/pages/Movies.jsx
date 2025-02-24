@@ -51,7 +51,7 @@ const Movies = () => {
           <li key={movie.id} className="line-after">
             <img src={movie.thumbnail} alt={movie.title} />
             <h2>{movie.title}</h2>
-            <p>{movie.genre}</p>
+            <p className="capitalize">{movie.genre}</p>
             <Link to={`/movies/${movie.id}`}>Browse Movies Details</Link>
           </li>
         ))}
