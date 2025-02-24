@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import "./Movies.css";
 
 const Movies = ({ movies, setSelectedMovieId }) => {
   const [selectedGenre, setSelectedGenre] = useState("all");
+  const navigate = useNavigate();
 
   const filteredMovies =
     selectedGenre === "all"
@@ -12,13 +13,13 @@ const Movies = ({ movies, setSelectedMovieId }) => {
 
   return (
     <div>
+      <button onClick={() => navigate("/")}>Go to Home</button>
       <button onClick={() => setSelectedGenre("all")}>All</button>
       <button onClick={() => setSelectedGenre("action")}>Action</button>
+      <button onClick={() => setSelectedGenre("crime")}>Crime</button>
       <button onClick={() => setSelectedGenre("drama")}>Drama</button>
       <button onClick={() => setSelectedGenre("superhero")}>Superhero</button>
-      <button onClick={() => setSelectedGenre("crime")}>Crime</button>
       <button onClick={() => setSelectedGenre("western")}>Western</button>
-
       <h1>Movies</h1>
       <ul>
         {filteredMovies.map((movie) => (

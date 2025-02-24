@@ -27,9 +27,10 @@ const ActorDetails = ({ movie }) => {
   return (
     <div>
       <h1>{actor.name}</h1>
-      <h2>{actor.popularity}</h2>
+      <h3>Popularity Points: {actor.popularity}</h3>
       <div className="actor-details">
         <img src={actor.image} alt={actor.name} />
+        <br />
         character: {actor.character}
       </div>
       <Link to={`/movies/${movie.id}`}>Back to the movie "{movie.title}"</Link>

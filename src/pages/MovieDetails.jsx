@@ -30,9 +30,9 @@ const MovieDetails = ({ setSelectedMovie }) => {
   return (
     <div>
       <h1>{movie.title}</h1>
-      <p>{movieId}</p>
-      <img src={movie.thumbnail} alt={movie.title} />
-      <p>{movie.genre}</p>
+      <p>{movie.tagline}</p>
+      <img src={movie.image} alt={movie.title} />
+      <p>Category: {movie.genre}</p>
       Actors:
       <ul>
         {movie.cast.map((cast) => (

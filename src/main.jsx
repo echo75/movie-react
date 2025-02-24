@@ -29,7 +29,6 @@ function Main() {
 
   return (
     <div>
-      <h1>Movies</h1>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
