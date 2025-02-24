@@ -14,7 +14,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
         <Route path="/movies/:movieId" element={<MovieDetails />} />
-        <Route path="/actor/:actorId" element={<ActorDetails />} />
+        <Route path="/actor/:movieId/:actorId" element={<ActorDetails />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

@@ -39,7 +39,7 @@ const MovieDetails = () => {
       <ul>
         {movie.cast.map((cast) => (
           <li key={cast.id}>
-            <Link to={`/actor/${cast.id}`}>{cast.character}</Link>
+            <Link to={`/actor/${movieId}/${cast.id}`}>{cast.character}</Link>
           </li>
         ))}
       </ul>
