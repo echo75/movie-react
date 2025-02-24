@@ -25,7 +25,7 @@ const ActorDetails = ({ movie }) => {
   }
 
   return (
-    <div>
+    <div className="container">
       <h1>{actor.name}</h1>
       <h3>Popularity Points: {actor.popularity}</h3>
       <div className="actor-details">

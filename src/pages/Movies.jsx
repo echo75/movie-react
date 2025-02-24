@@ -12,15 +12,17 @@ const Movies = ({ movies, setSelectedMovieId }) => {
       : movies.filter((movie) => movie.genre === selectedGenre);
 
   return (
-    <div>
-      <button onClick={() => navigate("/")}>Go to Home</button>
-      <button onClick={() => setSelectedGenre("all")}>All</button>
-      <button onClick={() => setSelectedGenre("action")}>Action</button>
-      <button onClick={() => setSelectedGenre("crime")}>Crime</button>
-      <button onClick={() => setSelectedGenre("drama")}>Drama</button>
-      <button onClick={() => setSelectedGenre("superhero")}>Superhero</button>
-      <button onClick={() => setSelectedGenre("western")}>Western</button>
+    <div className="container">
       <h1>Movies</h1>
+      <div className="genre">
+        <button onClick={() => navigate("/")}>Go to Home</button>
+        <button onClick={() => setSelectedGenre("all")}>All</button>
+        <button onClick={() => setSelectedGenre("action")}>Action</button>
+        <button onClick={() => setSelectedGenre("crime")}>Crime</button>
+        <button onClick={() => setSelectedGenre("drama")}>Drama</button>
+        <button onClick={() => setSelectedGenre("superhero")}>Superhero</button>
+        <button onClick={() => setSelectedGenre("western")}>Western</button>
+      </div>
       <ul>
         {filteredMovies.map((movie) => (
           <li key={movie.id} className="line-after">
