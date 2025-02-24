@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import axios from "axios";
 import "./Movies.css";
 
@@ -7,6 +7,7 @@ const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState("all");
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function loadMovies() {
@@ -34,15 +35,17 @@ const Movies = () => {
       : movies.filter((movie) => movie.genre === selectedGenre);
 
   return (
-    <div>
-      <button onClick={() => setSelectedGenre("all")}>All</button>
-      <button onClick={() => setSelectedGenre("action")}>Action</button>
-      <button onClick={() => setSelectedGenre("drama")}>Drama</button>
-      <button onClick={() => setSelectedGenre("superhero")}>Superhero</button>
-      <button onClick={() => setSelectedGenre("crime")}>Crime</button>
-      <button onClick={() => setSelectedGenre("western")}>Western</button>
-
+    <div className="container">
       <h1>Movies</h1>
+      <div className="genre">
+        <button onClick={() => navigate("/")}>Go to Home</button>
+        <button onClick={() => setSelectedGenre("all")}>All</button>
+        <button onClick={() => setSelectedGenre("action")}>Action</button>
+        <button onClick={() => setSelectedGenre("crime")}>Crime</button>
+        <button onClick={() => setSelectedGenre("drama")}>Drama</button>
+        <button onClick={() => setSelectedGenre("superhero")}>Superhero</button>
+        <button onClick={() => setSelectedGenre("western")}>Western</button>
+      </div>
       <ul>
         {filteredMovies.map((movie) => (
           <li key={movie.id} className="line-after">

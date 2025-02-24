@@ -27,9 +27,8 @@ const MovieDetails = () => {
   }
 
   return (
-    <div>
+    <div className="container">
       <h1>{movie.title}</h1>
-      <h2>{movieId}</h2>
       <img src={movie.image} alt={movie.title} />
       <p>
         {movie.tagline}

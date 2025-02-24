@@ -27,13 +27,13 @@ const ActorDetails = ({ movie }) => {
   }
 
   return (
-    <div>
+    <div className="container">
       <h1>{actor.name}</h1>
-      <h2>{actor.popularity}</h2>
+      <h3>Popularity Points: {actor.popularity}</h3>
       <div className="actor-details">
         <img src={actor.image} alt={actor.name} />
         <br />
-        character: {actor.character}
+        Character in the movie: {actor.character}
       </div>
       <Link to={`/movies/${movieId}`}>Back to Overview</Link>
     </div>
