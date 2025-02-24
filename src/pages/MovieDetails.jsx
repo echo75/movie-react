@@ -30,23 +30,19 @@ const MovieDetails = () => {
     <div>
       <h1>{movie.title}</h1>
       <h2>{movieId}</h2>
+      <img src={movie.image} alt={movie.title} />
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo laboriosam
-        error itaque obcaecati quaerat, id dignissimos voluptates debitis
-        voluptatum aliquid mollitia ducimus molestias aspernatur reprehenderit?
-        Tempore iure dolorum minima illum! <br />
+        {movie.tagline}
         <br />
-        Actors:
-        <ul>
-          {movie.cast.map((cast) => (
-            <li key={cast.id}>
-              <Link to={`/movies/${movie.id}/actor/${cast.id}`}>
-                {cast.character}
-              </Link>
-            </li>
-          ))}
-        </ul>
       </p>
+      Actors:
+      <ul>
+        {movie.cast.map((cast) => (
+          <li key={cast.id}>
+            <Link to={`/actor/${cast.id}`}>{cast.character}</Link>
+          </li>
+        ))}
+      </ul>
       <Link to={`/movies`}>Back to Overview</Link>
     </div>
   );
