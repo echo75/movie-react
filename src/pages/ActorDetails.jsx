@@ -32,6 +32,7 @@ const ActorDetails = ({ movie }) => {
       <h2>{actor.popularity}</h2>
       <div className="actor-details">
         <img src={actor.image} alt={actor.name} />
+        <br />
         character: {actor.character}
       </div>
       <Link to={`/movies/${movieId}`}>Back to Overview</Link>
