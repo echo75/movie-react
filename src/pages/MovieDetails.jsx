@@ -32,7 +32,9 @@ const MovieDetails = ({ setSelectedMovie }) => {
       <h1>{movie.title}</h1>
       <p>{movie.tagline}</p>
       <img src={movie.image} alt={movie.title} />
-      <p>Category: {movie.genre}</p>
+      <p>
+        Category: <span className="capitalize">{movie.genre}</span>
+      </p>
       Actors:
       <ul>
         {movie.cast.map((cast) => (
