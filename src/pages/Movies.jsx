@@ -6,6 +6,7 @@ import "./Movies.css";
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState("all");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadMovies() {
@@ -14,12 +15,18 @@ const Movies = () => {
           "https://2zc6fti416.execute-api.eu-central-1.amazonaws.com/prod/movies/"
         );
         setMovies(response.data);
+        setLoading(false);
       } catch (error) {
         console.log(error);
+        setLoading(false);
       }
     }
     loadMovies();
   }, []);
+
+  if (loading) {
+    return <div>Loading...</div>; // Ladezeichen anzeigen, wenn die Filme noch geladen werden
+  }
 
   const filteredMovies =
     selectedGenre === "all"

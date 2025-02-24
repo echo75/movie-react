@@ -23,7 +23,7 @@ const MovieDetails = () => {
   console.log(movie);
 
   if (!movie) {
-    return;
+    return <div>Loading...</div>;
   }
 
   return (
