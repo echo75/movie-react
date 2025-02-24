@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const ActorDetails = ({ movieId }) => {
+const ActorDetails = ({ movie }) => {
   const { actorId } = useParams();
   const [actor, setActor] = useState();
 
@@ -20,8 +20,6 @@ const ActorDetails = ({ movieId }) => {
     loadActor();
   }, [actorId]);
 
-  console.log(actor);
-
   if (!actor) {
     return <div>Loading...</div>;
   }
@@ -34,7 +32,7 @@ const ActorDetails = ({ movieId }) => {
         <img src={actor.image} alt={actor.name} />
         character: {actor.character}
       </div>
-      <Link to={`/movies/${movieId}`}>Back to Overview</Link>
+      <Link to={`/movies/${movie.id}`}>Back to the movie "{movie.title}"</Link>
     </div>
   );
 };

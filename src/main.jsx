@@ -1,17 +1,17 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router"; // Korrigiere den Import
-import axios from "axios";
+import { BrowserRouter, Routes, Route } from "react-router";
 import "./index.css";
-import { useEffect, useState } from "react";
-import Home from "./pages/Home"; // Stelle sicher, dass dieser Pfad korrekt ist
+import Home from "./pages/Home";
 import Movies from "./pages/Movies";
 import MovieDetails from "./pages/MovieDetails";
 import ActorDetails from "./pages/ActorDetails";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Main() {
   const [movies, setMovies] = useState([]);
-  const [selectedMovieId, setSelectedMovieId] = useState(null);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
     async function loadMovies() {
@@ -29,21 +29,22 @@ function Main() {
 
   return (
     <div>
+      <h1>Movies</h1>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
           path="/movies"
           element={
-            <Movies movies={movies} setSelectedMovieId={setSelectedMovieId} />
+            <Movies movies={movies} setSelectedMovie={setSelectedMovie} />
           }
         />
         <Route
           path="/movies/:movieId"
-          element={<MovieDetails setSelectedMovieId={setSelectedMovieId} />}
+          element={<MovieDetails setSelectedMovie={setSelectedMovie} />}
         />
         <Route
           path="/actor/:actorId"
-          element={<ActorDetails movieId={selectedMovieId} />}
+          element={<ActorDetails movie={selectedMovie} />}
         />
       </Routes>
     </div>

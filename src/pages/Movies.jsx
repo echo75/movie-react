@@ -1,12 +1,27 @@
+import { useState } from "react";
 import { Link } from "react-router";
 import "./Movies.css";
 
 const Movies = ({ movies, setSelectedMovieId }) => {
+  const [selectedGenre, setSelectedGenre] = useState("all");
+
+  const filteredMovies =
+    selectedGenre === "all"
+      ? movies
+      : movies.filter((movie) => movie.genre === selectedGenre);
+
   return (
     <div>
+      <button onClick={() => setSelectedGenre("all")}>All</button>
+      <button onClick={() => setSelectedGenre("action")}>Action</button>
+      <button onClick={() => setSelectedGenre("drama")}>Drama</button>
+      <button onClick={() => setSelectedGenre("superhero")}>Superhero</button>
+      <button onClick={() => setSelectedGenre("crime")}>Crime</button>
+      <button onClick={() => setSelectedGenre("western")}>Western</button>
+
       <h1>Movies</h1>
       <ul>
-        {movies.map((movie) => (
+        {filteredMovies.map((movie) => (
           <li key={movie.id} className="line-after">
             <img src={movie.thumbnail} alt={movie.title} />
             <h2>{movie.title}</h2>
@@ -15,7 +30,7 @@ const Movies = ({ movies, setSelectedMovieId }) => {
               to={`/movies/${movie.id}`}
               onClick={() => setSelectedMovieId(movie.id)}
             >
-              Browse Movies Details
+              Details of the movie
             </Link>
           </li>
         ))}

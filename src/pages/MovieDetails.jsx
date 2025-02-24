@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const MovieDetails = ({ setSelectedMovieId }) => {
+const MovieDetails = ({ setSelectedMovie }) => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState();
 
@@ -13,19 +13,18 @@ const MovieDetails = ({ setSelectedMovieId }) => {
           `https://2zc6fti416.execute-api.eu-central-1.amazonaws.com/prod/movies/${movieId}`
         );
         setMovie(response.data);
-        setSelectedMovieId(movieId); // Setze den ausgewählten Film
+        setSelectedMovie(response.data); // Setze den ausgewählten Film
       } catch (error) {
         console.log(error);
       }
     }
     loadMovie();
-  }, [movieId, setSelectedMovieId]);
+  }, [movieId, setSelectedMovie]);
 
   console.log(movie);
 
   if (!movie) {
     return <div>Loading...</div>;
-    return;
   }
 
   return (
